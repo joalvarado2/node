@@ -7,6 +7,6 @@ const argv = require("./yargs/yargs")
 //console.log("base: yargs", argv.b); 
 
 
-multi(argv.b, argv.l)
+multi(argv.b, argv.l, argv.m)
   .then((/* archivo */) => console.log(/* archivo, */ "creado".cyan))
   .catch((error) => console.log(error));

@@ -3,7 +3,7 @@ const argv = require("yargs")
     alias: "base",
     type: "number",
     demandOption: true,
-    describe: "me crea la tabla con el archivo .txt"
+    describe: "me indica el numero que se va multiplicar"
   })
   .option("l", {
     alias: "listar",
@@ -12,8 +12,14 @@ const argv = require("yargs")
     default: false,
     describe: "me muestra la tabla por consola"
   })
+  .option("m", {
+    alias: "maximo",
+    type: "number",
+    demandOption: true,
+    describe: "asigna el valor maximo a multiplicar"
+  })
   .check((argv, options) => {
-    if (isNaN(argv.b)) {
+    if (isNaN(argv.b) || isNaN(argv.l) || isNaN(argv.m)) {
       throw new Error("the base has to be a number");
     }
     return true;
