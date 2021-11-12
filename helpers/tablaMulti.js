@@ -14,9 +14,7 @@ const multi = async (number, listar = false, max) => {
       consola += `${num} ${"x".yellow} ${i} ${"=".yellow} ${res}\n`;   // esta linea representa la funcion de colors en la consola
     }
 
-    fs.appendFile("tabla.txt", salida, (err) => {
-      if (err) throw err;
-    });
+    fs.writeFileSync(`./tables/tabla-${num}.txt`, salida) 
 
     if (listar) {
       console.log("===================".rainbow);
@@ -25,7 +23,7 @@ const multi = async (number, listar = false, max) => {
 
       console.log(consola);
     }
-    return salida;
+    return `tabla ${salida}.txt`;
   } catch (error) {
     throw error;
   }
